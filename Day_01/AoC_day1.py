@@ -42,8 +42,7 @@ for code in input:
     if direction == "R":
         dial_position += amount
         if dial_position == 0:
-            if old_position != 0:
-                number_of_0 += 1
+            number_of_0 += 1
         else:
             while dial_position > 99:
                 dial_position -= 100
@@ -56,7 +55,8 @@ for code in input:
         else:
             while dial_position < 0:
                 dial_position += 100
-                number_of_0 += 1
+                if old_position != 0:
+                    number_of_0 += 1
 
     print(direction, amount, dial_position, number_of_0)
 
