@@ -33,4 +33,16 @@ for ingr in ingredients:
 print("First Puzzle:", total_of_fresh)
 
 
-print("Second Puzzle:")
+all_ranges = [3]
+for rang in ranges:
+    if min(all_ranges) > rang[1]:
+        temp = range(rang[0], rang[1] + 1)
+        all_ranges.extend(temp)
+    elif max(all_ranges) < rang[0]:
+        temp = range(rang[0], rang[1] + 1)
+        all_ranges.extend(temp)
+    else:
+        for i in range(rang[0], rang[1] + 1):
+            if all_ranges.count(i) < 1:
+                all_ranges.append(i)
+print("Second Puzzle:", len(all_ranges))
